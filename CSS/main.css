@@ -39,12 +39,12 @@ body {
   font-size: 3vh;
   color: white;
   transition: 0.2s ease;
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .warning .close-warning:hover {
   font-size: 3vh;
-  color: rgb(102, 0, 17);
+  color: rgb(102, 0, 17) !important;
 }
 
 .navbar {
@@ -154,7 +154,7 @@ p {
 }
 
 .arrow {
-  border: solid black;
+  border: solid rgb(255, 255, 255);
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -268,23 +268,46 @@ p {
   border: 2px solid rgb(44, 0, 163);
 }
 
+.button3{
+  color: rgb(44, 0, 163);
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid rgb(44, 0, 163);
+  font-family: 'Raleway', sans-serif;
+  font-size: 2vh;
+  border-radius: 1vh;
+  transition: 0.2s ease;
+  padding:1vh;
+}
+
+.button3:hover
+{
+  background: rgb(44, 0, 163);
+color: white;
+}
+
 .form-block {
+  display: none;
   position: fixed;
   min-width: 400px;
   width: 60%;
-  height: 80vh;
-  top: 50%;
+  padding: 3vh;
+  top: 45vh;
   left: 50%;
-  margin-top: -40vh;
+  margin-top: -30vh;
   /* Negative half of height. */
-  background: black;
+  background: rgb(255, 255, 255);
   border-radius: 10vh;
+  box-shadow: 0 2vh 2vh 2vh rgba(0, 0, 0, 0.452);
+  z-index: 2;
 }
 
 .form-box {
   padding: 2%;
-  width: 100%;
 
+}
+
+.form-block .inp{
+  display: inline-block;
 }
 
 .form-box li {
@@ -310,6 +333,7 @@ p {
   width: 100%;
   padding: 1vh;
 }
+
 
 textarea {
   padding: 12px 20px;
