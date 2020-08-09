@@ -1,0 +1,286 @@
+/*
+#f4f7ed
+#86ee60
+#2e6e65
+rgb(0, 40, 83)
+*/
+.header {
+  background-image: linear-gradient(to right, rgba(37, 71, 184, 0.658), rgba(59, 149, 201, 0.801));
+  background-position: bottom;
+  display: block;
+  position: relative;
+  height: 75vh;
+  margin: 0;
+}
+
+.header h1,
+.header h3,
+.header .btn-container{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map{
+  width: 100%;
+  height: 70vh;
+}
+
+.learn-more{
+  text-decoration: none !important;
+  font-family: 'Raleway', sans-serif;
+  color:grey;
+  font-size: 2vh;
+  height: 3vh;
+  transition: 0.2s ease;
+  display: inline-block;
+}
+
+.learn-more:hover{
+  font-size: 2.1vh;
+  color:grey;
+}
+
+#slideshow { 
+  margin: 0; 
+  padding: 0;
+  position: absolute; 
+  width: 100%; 
+  height: 100%;
+  z-index: -1;
+  display: grid;
+  left:0;
+  top:0;
+}
+
+#slideshow > div { 
+  position: relative; 
+  grid-column: 1;
+  margin: 0;
+  grid-row: 1;
+  width:100%; 
+  height: 100%;
+  background-size:cover;
+  background-position:top;
+}
+
+#slideshow > div > img{
+  /* height: 100%;  */
+}
+
+.header h3 {
+  color: rgba(255, 255, 255, 0.651);
+}
+
+.section-1 {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.568), rgba(255, 255, 255, 0.445)),
+    url("../Pics/pink-background.jpeg");
+  background-size: cover;
+}
+
+.straight-line {
+  border: 1px solid rgb(198, 184, 250);
+  width: 70vh;
+}
+
+.description {
+  position: relative;
+  top: 20vh;
+  left: 10%;
+  text-align: left;
+}
+
+.description h1 {
+  color: #f4f7ed;
+}
+
+.description h4 {
+  color: #fff;
+  font-weight: bolder;
+  margin-top: 2.5vh;
+  line-height: 1.5;
+}
+
+
+.right-img {
+  max-width: 100%;
+  border-radius: 3vh;
+  vertical-align: center;
+  margin: 5vw 0;
+  box-shadow: 0 0 2vh rgb(97, 97, 97);
+}
+
+
+.testimonial {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 2vh;
+  color: rgb(119, 119, 119);
+  display: inline-block;
+  margin: 2vh;
+  width: 75%;
+}
+
+.intro h4 {
+  margin: 3vh 0;
+  color: rgb(0, 95, 197);
+
+}
+
+.quote {
+  border: solid 1px rgb(194, 183, 183);
+  padding: 1vh;
+  border-radius: 3vh;
+
+  vertical-align: top;
+  margin: 4vh 0vh!important;
+  display: inline-block;
+}
+
+.left-line {
+  border-left: 1px solid transparent;
+
+}
+
+.feature-img {
+  width: 20%;
+}
+
+.box {
+  background-color: rgba(122, 195, 255, 0.116);
+  border: 1px solid white;
+  margin-top: 5vh;
+  padding: 3vh;
+  width: 90%;
+  color: white;
+  height: 100%;
+}
+
+.box p {
+  color: white;
+}
+
+.solid-block {
+  padding: 5vh;
+  background-image: linear-gradient(to bottom, #f75afc88, rgb(190, 76, 110)),
+    url("../Pics/robot-person.jpg");
+  background-size: cover;
+}
+
+.solid-block h2 {
+  color: white !important;
+}
+
+.solid-block h4 {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 2vh 0;
+}
+
+.count{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 10vh;
+  color: white;
+  padding: 1vh;
+}
+
+
+.news-post {
+  background-color: white;
+  margin: 2vh 0;
+  border-radius: 4vh;
+  box-shadow: 0 0 2vh rgb(173, 173, 173);
+  overflow: hidden;
+}
+
+.news-post img {
+  max-width: 100%;
+}
+
+.news-post h3 {
+  padding: 0 5vh;
+}
+
+.news-post p {
+  padding: 0 5vh 5vh 5vh;
+}
+
+.left-image {
+  height: 100%;
+  background-image: radial-gradient(transparent 60%, rgb(255, 255, 255)),
+    url("../Pics/class-clipart.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+}
+
+.signup {
+  vertical-align: top;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.signup:hover {
+  box-shadow: 1vh 2vh 2vh rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  transition: all 0.2s ease-in 0.05 ease-out;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.signup h2 {
+  text-decoration: none;
+  color: rgb(255, 255, 255) !important;
+}
+
+.signup h4 {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.562) !important;
+  margin-bottom: 5vh;
+
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-left: 49.52vw solid transparent;
+  border-right: 50vw solid transparent;
+  border-top: 10vh solid rgb(255, 255, 255);
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+
+}
+
+.student {
+  background-image: linear-gradient(rgba(90, 174, 253, 0.8), rgba(35, 57, 153, 0.8)),
+    url("../Pics/working.jpeg");
+}
+
+.mentor {
+  background-image: linear-gradient(rgba(223, 130, 181, 0.8), rgba(124, 24, 66, 0.8)),
+    url("../Pics/tutor2.jpg");
+}
+
+@media (min-width: 576px) { 
+
+}
+
+@media (min-width: 768px) { 
+
+}
+
+@media (min-width: 992px) { 
+  .left-line{
+    border-left: 1px solid rgb(194, 183, 183);
+  }
+}
+
+@media (min-width: 1200px) { 
+ 
+}
