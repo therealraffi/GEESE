@@ -140,7 +140,7 @@ p {
   overflow: visible;
   text-align: center;
   height: 1px;
-  width: 80vh;
+  width: 20vh;
   padding: 0;
 }
 
@@ -269,25 +269,28 @@ p {
 }
 
 .form-block {
-  min-width: 50vh;
+  position: fixed;
+  min-width: 400px;
+  width: 60%;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  margin-top: -40vh;
+  /* Negative half of height. */
+  background: black;
+  border-radius: 10vh;
 }
 
 .form-box {
   padding: 2%;
   width: 100%;
-  font-family: 'Raleway', sans-serif;
-  font-size: 2vh;
 
 }
 
 .form-box li {
   font-family: 'Raleway', sans-serif;
   font-size: 2vh;
-  color:rgb(255, 47, 82);
-}
-
-.form-box strong{
-  color:rgb(219, 0, 37);
+  color: rgb(255, 47, 82);
 }
 
 .form label {

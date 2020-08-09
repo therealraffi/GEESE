@@ -63,9 +63,6 @@
             </div>
         </div>
     </header>
-    <div class="container-fluid" style="max-width:80%; margin-top: 10vh;">
-        <div id="map"></div>
-    </div>
     <div class="section-1">
         <div class="spacer"></div>
         <div class="container intro">
@@ -94,30 +91,17 @@
         <div class="container features">
             <div class="row" align="center">
                 <div class="col-lg-12">
-                    <h2>We Teach ...</h2>
+                    <h2>Try it Out!</h2>
                     <hr class="double-line" data-symbol="o">
                 </div>
-                <div class="col-lg-4 col-sm-12">
-                    <img src="Pics/icons8-math-96.png" class="feature-img">
-                    <h3>Math</h3>
-                    <p>Get Real Test Prep and Gain Advanced Mathematical skills</p>
-                </div>
-                <div class="col-lg-4 col-sm-12 left-line">
-                    <img src="Pics/icons8-pen-96.png" class="feature-img">
-                    <h3>English</h3>
-                    <p>Get Real Test Prep and critical readings skills</p>
-                </div>
-                <div class="col-lg-4 col-sm-12 left-line">
-                    <img src="Pics/icons8-microscope-96.png" class="feature-img">
-                    <h3>STEM</h3>
-                    <p>Get hand-on experience with STEM-based projects</p>
-                </div>
-            </div>
-            <div align="right">
-                <a class="learn-more" href="curriculum.html">Learn More → </a>
+                <div id="map"></div>
             </div>
         </div>
         <div class="spacer"></div>
+    </div>
+    <div class="form-block">
+        <div class="close-warning">x</div>
+
     </div>
     <div class="container-fluid solid-block" align="center">
         <h2><strong>Learn from Students who have <br>Mastered the Testing Process</strong></h2>
@@ -220,7 +204,7 @@
         })
 
         $(".close-warning").click(function () {
-            $(".warning").slideUp()
+            $(this).parent().slideUp()
         })
 
         $("#slideshow > div:gt(0)").hide();
@@ -233,6 +217,10 @@
                 .end()
                 .appendTo('#slideshow');
         }, 8000);
+
+        $(window).on('resize', function () {
+            $('.form-block').css('margin-left', ($('.form-block').width() / -2));
+        }).resize();
 
         $(window).scroll(function () {
             var windowBottom = $(this).scrollTop() + $(this).innerHeight();
@@ -272,68 +260,47 @@
             center: [-96, 37.8],
             zoom: 3
         });
-
         map.on('load', function () {
-            // Add an image to use as a custom marker
-            map.loadImage(
-                'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-                function (error, image) {
-                    if (error) throw error;
-                    map.addImage('custom-marker', image);
-                    // Add a GeoJSON source with 2 points
-                    map.addSource('points', {
-                        'type': 'geojson',
-                        'data': {
-                            'type': 'FeatureCollection',
-                            'features': [{
-                                    // feature for Mapbox DC
-                                    'type': 'Feature',
-                                    'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': [
-                                            -77.03238901390978,
-                                            38.913188059745586
-                                        ]
-                                    },
-                                    'properties': {
-                                        'title': 'Sam Jenkins'
-                                    }
-                                },
-                                {
-                                    // feature for Mapbox SF
-                                    'type': 'Feature',
-                                    'geometry': {
-                                        'type': 'Point',
-                                        'coordinates': [-122.414, 37.776]
-                                    },
-                                    'properties': {
-                                        'title': 'Mapbox SF'
-                                    }
-                                }
-                            ]
+            var geojson = {
+                type: 'FeatureCollection',
+                features: [{
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [-77.032, 38.913]
+                        },
+                        properties: {
+                            title: 'Mapbox',
+                            description: 'Washington, D.C.'
                         }
-                    });
+                    },
+                    {
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [-122.414, 37.776]
+                        },
+                        properties: {
+                            title: 'Mapbox',
+                            description: 'San Francisco, California'
+                        }
+                    }
+                ]
+            };
 
-                    // Add a symbol layer
-                    map.addLayer({
-                        'id': 'points',
-                        'type': 'symbol',
-                        'source': 'points',
-                        'layout': {
-                            'icon-image': 'custom-marker',
-                            // get the title name from the source's "title" property
-                            'text-field': ['get', 'title'],
-                            'text-font': [
-                                'Open Sans Semibold',
-                                'Arial Unicode MS Bold'
-                            ],
-                            'text-offset': [0, 1.25],
-                            'text-anchor': 'top'
-                        }
-                    });
-                }
-            );
-        });
+            geojson.features.forEach(function (marker) {
+
+                // create a HTML element for each feature
+                var el = document.createElement('div');
+                el.className = 'marker';
+
+                // make a marker for each feature and add to the map
+                new mapboxgl.Marker(el)
+                    .setLngLat(marker.geometry.coordinates)
+                    .addTo(map);
+            });
+        })
+
     })
     //Icons made by <a href="https://www.flaticon.com/authors/popcorns-arts" title="Icon Pond">Icon Pond</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
     //Icons made by <a href="https://www.flaticon.com/authors/popcorns-arts" title="Icon Pond">Icon Pond</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

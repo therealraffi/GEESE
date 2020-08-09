@@ -23,8 +23,19 @@ rgb(0, 40, 83)
 }
 
 #map{
+  margin-top: 5vh;
   width: 100%;
   height: 70vh;
+}
+
+.marker {
+  background-image: url('../Pics/marker-logo-green.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .learn-more{
