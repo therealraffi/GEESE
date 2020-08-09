@@ -618,6 +618,10 @@ input[type=submit]:hover {
   padding: 0 5vh 5vh 5vh;
 }
 
+.sub{
+  cursor: pointer;
+}
+
 .left-image {
   height: 100%;
   background-image: radial-gradient(transparent 60%, rgb(255, 255, 255)),

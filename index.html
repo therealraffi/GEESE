@@ -93,6 +93,9 @@
                     <h2>Try it Out!</h2>
                     <hr class="double-line" data-symbol="o">
                     <button class="button3">Press me</button>
+                    <p class="ntext" style="padding-top: 5vh;"></p>
+                    <p class="mtext"></p>
+                    <p id="location"></p>
                 </div>
                 <div id="map"></div>
             </div>
@@ -105,7 +108,7 @@
                 <input id="full-name" type="text" placeholder="Full Name" required />
             </div>
             <div class="form-box inp">
-                <input placeholder="Email Address" type="email" required />
+                <input placeholder="Email Address" type="email" />
             </div>
 
             <div class="form-box">
@@ -253,22 +256,35 @@
             zoom: 3
         });
 
-        function showPosition(position) {
 
-            function showPosition() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        return [position.coords.latitude, position.coords.longitude]
-                    });
-                } else {
-                    alert("Sorry, your browser does not support HTML5 geolocation.");
-                }
+        $(".sub").click(function () {
+            var m = $("#message").text()
+
+            $(".ntext").text("Hi " + $("#full-name").val() + " ,")
+            $(".mtext").text("Your Message: <" + $("#message").val() + "> has been processed!")
+
+        })
+
+
+        function getLocation() {
+            // Check whether browser supports Geolocation API or not
+            if (navigator.geolocation) { // Supported
+                navigator.geolocation.getCurrentPosition(getPosition);
+            } else { // Not supported
+                alert("Oops! This browser does not support HTML Geolocation.");
             }
-            showPosition()
         }
 
+        function getPosition(position) {
+            document.getElementById("location").innerHTML =
+                "Current Location: <br>Latitude: " + position.coords.latitude + "<br>" +
+                "Longitude: " + position.coords.longitude;
+        }
 
         map.on('load', function () {
+            getLocation()
+            var str = $("#location").val()
+            console.log(str)
             var geojson = {
                 type: 'FeatureCollection',
                 features: [{
@@ -282,17 +298,17 @@
                             description: 'Washington, D.C.'
                         }
                     },
-                    {
-                        type: 'Feature',
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [-122.414, 37.776]
-                        },
-                        properties: {
-                            title: 'Mapbox',
-                            description: 'San Francisco, California'
-                        }
-                    }
+                    // {
+                    //     type: 'Feature',
+                    //     geometry: {
+                    //         type: 'Point',
+                    //         coordinates: [ar[0], ar[1]]
+                    //     },
+                    //     properties: {
+                    //         title: 'Mapbox',
+                    //         description: 'Washington, D.C.'
+                    //     }
+                    // },
                 ]
             };
 
